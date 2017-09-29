@@ -8,8 +8,15 @@ describe(Brand) do
     expect(brand.save).to eq false
   end
 
-  it("only accepts input that is at most 100 characters") do
+  it("only accepts a name that is at most 100 characters") do
     brand = Brand.new({:name => "a".*(101)})
     expect(brand.save).to eq false
+  end
+
+  it("only accepts a name that is unique") do
+    brand1 = Brand.new({:name => "Cheetah"})
+    brand2 = Brand.new({:name => "Cheetah"})
+    brand1.save
+    expect(brand2.save).to eq false
   end
 end

@@ -12,4 +12,11 @@ describe(Store) do
     store = Store.new({:name => "a".*(101)})
     expect(store.save).to eq false
   end
+
+  it("only accepts a name that is unique") do
+    store1 = Store.new({:name => "Heeling Powers"})
+    store2 = Store.new({:name => "Heeling Powers"})
+    store1.save
+    expect(store2.save).to eq false
+  end
 end
