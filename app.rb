@@ -10,7 +10,27 @@ end
 
 post '/store/new' do
   name = params["name"]
-  store = Store.new({:name => name, :id => nil})
+  store = Store.new({:name => name})
   store.save
   redirect '/'
+end
+
+get '/store/:id' do
+  @stores = Store.all
+  @store = Store.find(params[:id])
+  erb :store
+end
+
+get '/store/:id/edit' do
+  @store = Store.find(params[:id])
+  erb :edit
+end
+
+patch '/store/:id/edit' do
+  @stores = Store.all
+  @id = params[:id]
+  @store = Store.find(params[:id])
+  name = params["name"]
+  @store.update({:name => name})
+  redirect "/store/#{@store.id}"
 end

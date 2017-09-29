@@ -1,0 +1,11 @@
+<h1><%= @store.name %></h1>
+
+<h3>You can change your store's name here:</h3>
+<form action="/store/<%= @store.id %>/edit" method="post">
+  <div class="form-group">
+    <input name="_method" type="hidden" value="patch">
+    <label for="name">New store name</label>
+    <input class="form-control" type="text" name="name"/>
+  </div>
+  <button class="btn btn-success btn-block" type="submit">Update Store</button>
+</form>

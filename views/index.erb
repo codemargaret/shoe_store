@@ -1,16 +1,15 @@
-<h1>Shoe Store</h1>
+<h1>All Stores</h1>
+  <ul>
+    <% @stores.each do |store| %>
+      <li><a href="/store/<%= store.id %>"><%= store.name %></a></li>
+    <% end %>
+  </ul>
 
+<h3>Add a store to the list!</h3>
 <form action="/store/new" method="post">
   <div class="form-group">
     <label for="name">Store name</label>
     <input class="form-control" type="text" name="name"/>
   </div>
-  <button class="btn btn-primary btn-block" type="submit">Add Store</button>
+  <button class="btn btn-success btn-block" type="submit">Add Store</button>
 </form>
-
-<h1>All Stores</h1>
-  <ul>
-    <% @stores.each do |store| %>
-      <li><%= store.name %></li>
-    <% end %>
-  </ul>
