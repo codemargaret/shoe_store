@@ -6,10 +6,6 @@ class Store < ActiveRecord::Base
 
 private
 
-  # def cap_name
-  #   self.name =(name.capitalize)
-  # end
-
   def cap_name
     name = self.name
     words = name.split(" ")

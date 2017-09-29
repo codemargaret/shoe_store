@@ -21,15 +21,57 @@ end
 #Adds a new brand to the list
 post '/brand/new' do
   name = params["brand_name"]
-  brand = Brand.new({:name => name})
+  price = params["price"]
+  brand = Brand.new({:name => name, :price => price})
   brand.save
+  # @price = '%.02f' % price
   redirect '/'
 end
 
 #Shows an individual store's page
 get '/store/:id' do
   @store = Store.find(params[:id])
+  @brands = @store.brands
   erb :store
+end
+
+#Show the brand add page
+get "/store/:id/add_brand" do
+  @store = Store.find(params[:id])
+  @brands = Brand.all
+  erb :add_brand
+end
+
+#Show the store add page
+get "/brand/:id/add_store" do
+  @brand = Brand.find(params[:id])
+  @stores = Store.all
+  erb :add_store
+end
+
+#Adds an existing brand to a store
+post "/store/:id/add_brand" do
+  @store = Store.find(params[:id])
+  @brands = Brand.all
+  brand = Brand.find(params["brand_id"])
+  @store.brands.push(brand)
+  redirect "/store/#{@store.id}"
+end
+
+#Adds an existing store to a brand
+post "/brand/:id/add_store" do
+  @brand = Brand.find(params[:id])
+  @stores = Brand.all
+  store = Store.find(params["store_id"])
+  @brand.stores.push(store)
+  redirect "/brand/#{@brand.id}"
+end
+
+#Shows an individual brand's page
+get '/brand/:id' do
+  @brand = Brand.find(params[:id])
+  @stores = @brand.stores
+  erb :brand
 end
 
 #Shows the store edit page

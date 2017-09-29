@@ -1,3 +1,14 @@
 <h1><%= @store.name %></h1>
 
+<ul>
+  <% if @brands.any? %>
+    <% @brands.each do |brand| %>
+      <li><%= brand.name %></li>
+    <% end %>
+  <% else %>
+    <p>There are no brands at this store yet!</p>
+  <% end %>
+</ul>
+
 <a href="/store/<%= @store.id %>/edit">Edit Store Name</a>
+<a href="/store/<%= @store.id %>/add_brand">Add a brand to this store</a>

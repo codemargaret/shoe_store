@@ -1,0 +1,14 @@
+<h1><%= @brand.name %></h1>
+
+<form action="/brand/<%= @brand.id %>/add_store" method="post">
+  <select class="custom-select" name="store_id">
+    <% if (@stores).any? %>
+      <% @stores.each do |store| %>
+        <option value="<%= store.id %>">
+          <%= store.name %>
+        </option>
+      <% end %>
+    <% end %>
+  </select>
+  <button type="submit" class="btn btn-outline-success">Add a Store to this Brand</button>
+</form>

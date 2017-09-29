@@ -8,6 +8,11 @@ describe(Brand) do
     expect(brand.save).to eq false
   end
 
+  # it 'validates presence of price' do
+  #   brand = Brand.new({:price => ""})
+  #   expect(brand.save).to eq false
+  # end
+
   it 'only accepts a name that is at most 100 characters' do
     brand = Brand.new({:name => "a".*(101)})
     expect(brand.save).to eq false
