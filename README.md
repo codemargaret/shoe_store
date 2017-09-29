@@ -34,7 +34,6 @@ _If you have questions, comments, or concerns, please contact [Margaret](margare
 * _Ruby_
 * _Sinatra_
 * _Postgres_
-* _SQL_
 * _ActiveRecord_
 
 ### License
