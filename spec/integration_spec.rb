@@ -6,9 +6,18 @@ set(:show_exceptions, false)
 describe 'the store creation path', {:type => :feature} do
   it 'takes the user to a homepage where they can add stores' do
     visit '/'
-    fill_in('name', :with => 'Caterpillar Shoes')
+    fill_in('store_name', :with => 'Caterpillar Shoes')
     click_button('Add Store')
     expect(page).to have_content('Caterpillar Shoes')
+  end
+end
+
+describe 'the brand creation path', {:type => :feature} do
+  it 'takes the user to a homepage where they can add brands' do
+    visit '/'
+    fill_in('brand_name', :with => 'WalkRight')
+    click_button('Add Brand')
+    expect(page).to have_content('WalkRight')
   end
 end
 
@@ -19,7 +28,7 @@ describe 'the store update path', {:type => :feature} do
     visit '/'
     click_link('Caterpillar Shoes')
     click_link('Edit Store Name')
-    fill_in('name', :with => 'Centipede Shoes')
+    fill_in('new_store_name', :with => 'Centipede Shoes')
     click_button('Update Store')
     expect(page).to have_content('Centipede Shoes')
   end

@@ -1,15 +1,42 @@
-<h1>All Stores</h1>
-  <ul>
-    <% @stores.each do |store| %>
-      <li><a href="/store/<%= store.id %>"><%= store.name %></a></li>
-    <% end %>
-  </ul>
-
-<h3>Add a store to the list!</h3>
-<form action="/store/new" method="post">
-  <div class="form-group">
-    <label for="name">Store name</label>
-    <input class="form-control" type="text" name="name"/>
+<div class="row">
+  <div class="col-6">
+    <h1>All Stores</h1>
+    <ul>
+      <% @stores.each do |store| %>
+        <li><a href="/store/<%= store.id %>"><%= store.name %></a></li>
+      <% end %>
+    </ul>
   </div>
-  <button class="btn btn-success btn-block" type="submit">Add Store</button>
-</form>
+  <div class="col-6">
+    <h1>All Brands</h1>
+    <ul>
+      <% @brands.each do |brand| %>
+        <li><a href="/brand/<%= brand.id %>"><%= brand.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-6">
+    <h3>Add a store to the list!</h3>
+    <form action="/store/new" method="post">
+      <div class="form-group">
+        <label for="store_name">Store name</label>
+        <input class="form-control" type="text" name="store_name"/>
+      </div>
+      <button class="btn btn-success btn-block" type="submit">Add Store</button>
+    </form>
+  </div>
+  <div class="col-6">
+    <h3>Add a brand to the list!</h3>
+    <form action="/brand/new" method="post">
+      <div class="form-group">
+        <label for="brand_name">Brand name</label>
+        <input class="form-control" type="text" name="brand_name"/>
+      </div>
+      <button class="btn btn-success btn-block" type="submit">Add Brand</button>
+    </form>
+  </div>
+</div>
