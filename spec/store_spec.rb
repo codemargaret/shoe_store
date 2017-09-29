@@ -8,15 +8,21 @@ describe(Store) do
     expect(store.save).to eq false
   end
 
-  it("only accepts input that is at most 100 characters") do
+  it 'only accepts input that is at most 100 characters' do
     store = Store.new({:name => "a".*(101)})
     expect(store.save).to eq false
   end
 
-  it("only accepts a name that is unique") do
+  it 'only accepts a name that is unique' do
     store1 = Store.new({:name => "Heeling Powers"})
     store2 = Store.new({:name => "Heeling Powers"})
     store1.save
     expect(store2.save).to eq false
+  end
+
+  it 'capitalizes the first letter of a name' do
+    store = Store.new({:name => "heeling powers"})
+    store.save
+    expect(store.name).to eq "Heeling Powers"
   end
 end
