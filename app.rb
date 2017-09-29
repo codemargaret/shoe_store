@@ -14,8 +14,11 @@ end
 post '/store/new' do
   name = params["store_name"]
   store = Store.new({:name => name})
-  store.save
-  redirect '/'
+  if store.save
+    redirect '/'
+  else
+    erb :error
+  end
 end
 
 #Adds a new brand to the list
@@ -23,9 +26,11 @@ post '/brand/new' do
   name = params["brand_name"]
   price = params["price"]
   brand = Brand.new({:name => name, :price => price})
-  brand.save
-  # @price = '%.02f' % price
-  redirect '/'
+  if brand.save
+    redirect '/'
+  else
+    erb :error
+  end
 end
 
 #Shows an individual store's page
