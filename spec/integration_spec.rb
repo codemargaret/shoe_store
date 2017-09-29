@@ -24,3 +24,16 @@ describe 'the store update path', {:type => :feature} do
     expect(page).to have_content('Centipede Shoes')
   end
 end
+
+describe 'the store delete path', {:type => :feature} do
+  it 'allows a user to delete a store' do
+    store = Store.new({:name => 'Caterpillar Shoes'})
+    store.save
+    visit '/'
+    click_link('Caterpillar Shoes')
+    click_link('Edit Store Name')
+    click_button('Delete Store')
+    visit '/'
+    expect(page).not_to have_content("Caterpillar Shoes")
+  end
+end
