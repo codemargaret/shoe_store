@@ -74,17 +74,32 @@ describe 'the brand delete path', {:type => :feature} do
   end
 end
 
-# describe 'adding a brand to a store', {:type => :feature} do
-#   it 'allows a user to add a brand to a store' do
-#     store = Store.new({:name => 'Caterpillar Shoes'})
-#     brand = Brand.new({:name => 'Cheetah'})
-#     store.save
-#     brand.save
-#     visit '/'
-#     click_link('Caterpillar Shoes')
-#     click_link('Add a brand to this store')
-#     select('Cheetah' :from => "brand_id")
-#     click_button('Add Brand to Store')
-#     expect(page).to have_content('Cheetah')
-#   end
-# end
+describe 'adding a brand to a store', {:type => :feature} do
+  it 'allows a user to add a brand to a store' do
+    store = Store.new({:name => 'Caterpillar Shoes'})
+    brand = Brand.new({:name => 'Cheetah', :price => 25})
+    store.save
+    brand.save
+    visit '/'
+    click_link('Caterpillar Shoes')
+    click_link('Add a brand to this store')
+    select('Cheetah', :from => "brand_id")
+    click_button('Add Brand to Store')
+    expect(page).to have_content('Cheetah')
+  end
+end
+
+describe 'adding a store to a brand', {:type => :feature} do
+  it 'allows a user to add a store to a brand' do
+    store = Store.new({:name => 'Caterpillar Shoes'})
+    brand = Brand.new({:name => 'Cheetah'})
+    store.save
+    store.save
+    visit '/'
+    click_link('Caterpillar Shoes')
+    click_link('Add a store to this brand')
+    select('Caterpillar Shoes' :from => "store_id")
+    click_button('Add Brand to Store')
+    expect(page).to have_content('Caterpillar Shoes')
+  end
+end
