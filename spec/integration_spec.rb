@@ -61,6 +61,19 @@ describe 'the store delete path', {:type => :feature} do
   end
 end
 
+describe 'the brand delete path', {:type => :feature} do
+  it 'allows a user to delete a brand' do
+    brand = Brand.new({:name => 'Caterpillar Shoes', :price => 25})
+    brand.save
+    visit '/'
+    click_link('Caterpillar Shoes')
+    click_link('Edit Brand Name')
+    click_button('Delete Brand')
+    visit '/'
+    expect(page).not_to have_content("Caterpillar Shoes")
+  end
+end
+
 # describe 'adding a brand to a store', {:type => :feature} do
 #   it 'allows a user to add a brand to a store' do
 #     store = Store.new({:name => 'Caterpillar Shoes'})

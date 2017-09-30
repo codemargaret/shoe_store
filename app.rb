@@ -113,3 +113,10 @@ delete '/store/:id/edit' do
   @store.delete
   redirect "/"
 end
+
+#Deletes brand from the list
+delete '/brand/:id/edit' do
+  @brand = Brand.find(params[:id])
+  @brand.delete
+  redirect "/"
+end
