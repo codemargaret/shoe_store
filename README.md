@@ -23,9 +23,29 @@ _This app tracks keeps track of information about shoes, including prices and wh
 
 ## Specifications
 
-* _Spec_
-* _Example input:_
-* _Example output:_
+* _Spec: Shows a store on the homepage when added_
+* _Example input: Caterpillar Shoes_
+* _Example output: Stores: Caterpillar Shoes_
+
+* _Spec: Shows a brand on the homepage when added_
+* _Example input: Cheetah_
+* _Example output: Brands: Cheetah_
+
+* _Spec: Shows a the brands a store sells on its page_
+* _Example input: Cheetah_
+* _Example output: Brands: Cheetah_
+
+* _Spec: Shows a the stores where a brand is available on its page_
+* _Example input: Caterpillar Shoes_
+* _Example output: Stores: Caterpillar Shoes_
+
+* _Spec: Allows you to add a store to a brand_
+* _Example input: Caterpillar Shoes_
+* _Example output: Cheetah: Stores: Caterpillar Shoes_
+
+* _Spec: Allows you to add a brand to a store_
+* _Example input: Cheetah_
+* _Example output: Caterpillar Shoes: Brands: Cheetah:_
 
 ## Setup/Installation Requirements
 
