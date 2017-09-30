@@ -7,10 +7,10 @@
     <label for="new_store_name">New store name</label>
     <input class="form-control" type="text" name="new_store_name"/>
   </div>
-  <button class="btn btn-success btn-block" type="submit">Update Store</button>
+  <button class="btn btn-outline-success btn-block" type="submit">Update Store</button>
 </form>
 
 <form action="/store/<%= @store.id %>/edit" method="post">
     <input name="_method" type="hidden" value="delete">
-  <button class="btn btn-success btn-block" type="submit">Delete Store</button>
+  <button class="btn btn-outline-success btn-block" type="submit">Delete Store</button>
 </form>

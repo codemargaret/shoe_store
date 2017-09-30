@@ -93,6 +93,20 @@ patch '/store/:id/edit' do
   redirect "/store/#{@store.id}"
 end
 
+#Shows the brand edit page
+get '/brand/:id/edit' do
+  @brand = Brand.find(params[:id])
+  erb :edit_brand
+end
+
+#Updates brand name
+patch '/brand/:id/edit' do
+  @brand = Brand.find(params[:id])
+  name = params["new_brand_name"]
+  @brand.update({:name => name})
+  redirect "/brand/#{@brand.id}"
+end
+
 #Deletes store from the list
 delete '/store/:id/edit' do
   @store = Store.find(params[:id])

@@ -11,7 +11,7 @@
     <h1>All Brands</h1>
     <ul>
       <% @brands.each do |brand| %>
-        <li><a href="/brand/<%= brand.id %>"><%= brand.name + " " + "$"%><%= brand.price %></a></li>
+        <li><a href="/brand/<%= brand.id %>"><%= brand.name %> $<%= '%.02f' % brand.price %></a></li>
       <% end %>
     </ul>
   </div>
@@ -26,7 +26,7 @@
         <label for="store_name">Store name</label>
         <input class="form-control" type="text" name="store_name"/>
       </div>
-      <button class="btn btn-success btn-block" type="submit">Add Store</button>
+      <button class="btn btn-outline-success btn-block" type="submit">Add Store</button>
     </form>
   </div>
   <div class="col-6">
@@ -40,7 +40,7 @@
         <label for="price">Price</label>
         <input class="form-control" type="text" name="price"/>
       </div>
-      <button class="btn btn-success btn-block" type="submit">Add Brand</button>
+      <button class="btn btn-outline-success btn-block" type="submit">Add Brand</button>
     </form>
   </div>
 </div>

@@ -4,7 +4,6 @@ class Brand < ActiveRecord::Base
   # validates(:price, {:presence => true})
   validates_uniqueness_of :name
   before_save :cap_name
-  # before_save :money_format
 
 private
 
@@ -17,10 +16,4 @@ private
     end
     self.name = cap_words.join(" ")
   end
-
-  # def money_format
-  #   price_before = self.price
-  #   float_price = price_before.to_f
-  #   self.price = '%.02f' % float_price
-  # end
 end
