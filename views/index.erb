@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-6">
     <h1>All Stores</h1>
-    <ul>
+    <ul id="click_store">
       <% @stores.each do |store| %>
         <li><a href="/store/<%= store.id %>"><%= store.name %></a></li>
       <% end %>
@@ -9,7 +9,7 @@
   </div>
   <div class="col-6">
     <h1>All Brands</h1>
-    <ul>
+    <ul id="click_brand">
       <% @brands.each do |brand| %>
         <li><a href="/brand/<%= brand.id %>"><%= brand.name %> $<%= '%.02f' % brand.price %></a></li>
       <% end %>
