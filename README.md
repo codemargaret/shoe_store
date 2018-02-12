@@ -5,7 +5,6 @@
 #### By _**Margaret Berry**_
 
 ## Description
-
 _This app tracks keeps track of information about shoes, including prices and where they are sold. A store can sell many brands of shoes, and a brand can also be sold at many different stores._
 
 ## User Stories
@@ -22,45 +21,25 @@ _This app tracks keeps track of information about shoes, including prices and wh
 * _As a user, I want store and brand names to have a maximum of one hundred characters._
 
 ## Specifications
-
-* _Spec: Shows a store on the homepage when added_
-* _Example input: Caterpillar Shoes_
-* _Example output: Stores: Caterpillar Shoes_
-
-* _Spec: Shows a brand on the homepage when added_
-* _Example input: Cheetah_
-* _Example output: Brands: Cheetah_
-
-* _Spec: Shows a the brands a store sells on its page_
-* _Example input: Cheetah_
-* _Example output: Brands: Cheetah_
-
-* _Spec: Shows a the stores where a brand is available on its page_
-* _Example input: Caterpillar Shoes_
-* _Example output: Stores: Caterpillar Shoes_
-
-* _Spec: Allows you to add a store to a brand_
-* _Example input: Caterpillar Shoes_
-* _Example output: Cheetah: Stores: Caterpillar Shoes_
-
-* _Spec: Allows you to add a brand to a store_
-* _Example input: Cheetah_
-* _Example output: Caterpillar Shoes: Brands: Cheetah:_
+| Spec                                                      | Input             | Output                                                 |
+|-----------------------------------------------------------|-------------------|--------------------------------------------------------|
+| Shows a store on the homepage when added                  | Caterpillar Shoes | Stores: Caterpillar Shoes                              |
+| Shows a brand on the homepage when added                  | Cheetah           | Brands: Cheetah                                        |
+| Shows a the brands a store sells on its page              | Cheetah           | Store: Caterpillar Shoes, Brands: Cheetah              |
+| Shows a the stores where a brand is available on its page | Caterpillar Shoes | Brand: Cheetah Stores: Caterpillar Shoes               |
+| Allows you to add multiple stores to a brand              | Undefeetable      | Brand: Cheetah Stores: Caterpillar Shoes, Undefeetable |
+| Allows you to add multiple brands to a store              | Puma              | Store: Caterpillar Shoes, Brands: Cheetah, Puma        |
 
 ## Setup/Installation Requirements
-
 * _Install Shoe Store by cloning this repository._
 
 ## Known Bugs
-
 _There are no known bugs at this time._
 
 ## Support and contact details
-
-_If you have questions, comments, or concerns, please contact [Margaret](margaretshelaghmcgovern@gmail.com).  Feel free to make a contribution to the code._
+_If you have questions, comments, or concerns, please contact [Margaret](codeberry1@gmail.com).  Feel free to make a contribution to the code._
 
 ## Technologies Used
-
 * _Bootstrap_
 * _Ruby_
 * _Sinatra_
